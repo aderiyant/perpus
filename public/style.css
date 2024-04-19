@@ -1,0 +1,49 @@
+.paragraf {
+    left: 490px;
+        top: 100px;
+        position: absolute;
+        color: #CCCE6E;
+        font-size: 64px;
+        font-family: Inter;
+        font-weight: 700;
+        word-wrap: break-word
+}
+.div1 {
+    left: 604px; 
+    top: 260px; 
+    position: absolute; 
+    color: #270E3F; 
+    font-size: 24px; 
+    font-family: Inter; 
+    font-weight: 700; 
+    word-wrap: break-word;
+}
+button {
+    margin-right: auto;
+}
+.p1 {
+    left: 18px;
+        top: 135px;
+        position: absolute;
+        color: black;
+        font-size: 13px;
+        font-family: Inter;
+        font-weight: 700;
+        word-wrap: break-word" 
+}
+table {
+    left: 40px;
+    top: 50px;
+    position: relative;
+}
+.btnlogin {
+    width: 80px; 
+    height: 20px; 
+    left: 90px; 
+    top: 15px; 
+    position:  relative; 
+    border-radius: 10px;
+}
+.active {
+    background: #000;
+}

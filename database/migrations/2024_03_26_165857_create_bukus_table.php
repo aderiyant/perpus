@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('bukus', function (Blueprint $table) {
             $table->id();
-            $table->string('namalengkap');
-            $table->enum('jeniskelamin', ['laki-laki', 'perempuan']);
-            $table->string('username')->unique();
-            $table->string('password')->unique();
-            $table->string('kelas');
-            $table->string('level');
+            $table->string('kodebuku')->unique();
+            $table->string('judul');
+            $table->string('pengarang');
+            $table->enum('kategori', ['akademik', 'non akademik']);
+            $table->string('status')->default('tersedia');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('bukus');
     }
 };
