@@ -18,6 +18,7 @@
                 <th>Rent Date</th>
                 <th>Return Date</th>
                 <th>Actual Return Date</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +31,10 @@
                 <td>{{ $item->rent_date }}</td>
                 <td>{{ $item->return_date }}</td>
                 <td>{{ $item->actual_return_date }}</td>
+                <td>
+        <a href="delete/{id}/{{ $item->id }}" class="btn btn-danger">Hapus</a>
+                </td>
+    </td>
             </tr>
             @endforeach
         </tbody>

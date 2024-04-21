@@ -29,9 +29,10 @@
         <ul>
             @if (auth()->user()->level=="user")
             <a class="nav-link active" href="/buku">Buku</a>
+            <a class="nav-link active" href="/book-rent">Peminjaman</a>
+
             @endif
                      @if (auth()->user()->level=="admin")
-            <a class="nav-link active" href="/layouts">DASHBOARD</a><br>
             <a class="nav-link active" href="/buku">Buku</a>
             <a class="nav-link active" href="/siswa">Siswa</a>
             <a class="nav-link active"  href="/rent-logs"> Data Peminjaman</a>

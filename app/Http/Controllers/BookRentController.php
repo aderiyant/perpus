@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Commit;
-use Illuminate\Http\Controler\Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Buku;
 use App\Models\RentLogs;
@@ -17,9 +17,9 @@ class BookRentController extends Controller
     public function index()
     {
         $bukus = Buku::all(); // Mengambil semua data buku
-        $users = User::all(); // Mengambil semua data user
+        $users = Auth::user(); // Mengambil semua data user
         //dd($bukus);
-        //return view('siswa.peminjaman', compact('bukus', 'users'));
+        return view('siswa.peminjaman', compact('bukus', 'users'));
     }
 
     public function store(Request $request)
@@ -53,7 +53,7 @@ class BookRentController extends Controller
 
     //         // Mengubah status buku menjadi tidak tersedia (dipinjam)
              $buku->status = 'tidak tersedia';
-          $buku->save();
+             $buku->save();
                 //dd($buku);
               DB::commit(); // Commit transaksi
 
@@ -76,28 +76,40 @@ class BookRentController extends Controller
         $bukus = Buku::all();
         return view('petugas.pengembalian', ['users' => $users, 'bukus' => $bukus]);
     }
-    public function simpanpengembalian(Request $request)
-    {
-        $rent = RentLogs::where('user_id', $request->user_id)->where('kodebuku', $request->kodebuku)
-        ->where('actual_return_date', null);
-        $rentData = $rent->first();
-        $countData = $rent->count();
 
+public function simpanpengembalian(Request $request)
+{
+    $request->validate([
+        'user_id' => 'required',
+        'kodebuku' => 'required',
+    ]);
 
-        if($countData == 1) {
-            $rentData->actual_return_date = Carbon::now()->toDateString();
-            $rentData->save();
+    // Mengambil data peminjaman yang belum dikembalikan
+    $rentData = RentLogs::where('user_id', $request->user_id)
+                        ->where('kodebuku', $request->kodebuku)
+                        ->whereNull('actual_return_date')
+                        ->first();
 
-            session::flash('message', 'Pengembalian Berhasil');
-            session::flash('alert-class', 'alert-success');
-            return redirect('pengembalian');
-              
-            
-        }
-        else {
-            session::flash('message', 'tidak ada data pengembalian');
-            session::flash('alert-class', 'alert-danger');
-            return redirect('pengembalian');
-        }
+    if($rentData) {
+        // Menyimpan tanggal pengembalian aktual
+        $rentData->actual_return_date = Carbon::now()->toDateString();
+        $rentData->save();
+
+        // Mengubah status buku menjadi tersedia
+        $buku = Buku::where('kodebuku', $request->kodebuku)->first();
+        $buku->status = 'tersedia';
+        $buku->save();
+
+        // Redirect dengan pesan sukses
+        Session::flash('message', 'Pengembalian berhasil');
+        Session::flash('alert-class', 'alert-success');
+        return redirect('pengembalian');
     }
+    else {
+        // Redirect dengan pesan kesalahan jika tidak ada data peminjaman yang sesuai
+        Session::flash('message', 'Tidak ada data pengembalian');
+        Session::flash('alert-class', 'alert-danger');
+        return redirect('pengembalian');
+    }
+}
 }

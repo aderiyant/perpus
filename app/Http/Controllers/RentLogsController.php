@@ -14,4 +14,9 @@ class RentLogsController extends Controller
         return view('petugas.data_peminjaman',['rent_logs' => $rentlogs]);
 
     }
+    public function delete($id){
+        $rentlogs = RentLogs::find($id);
+        $rentlogs->delete();
+        return redirect()->route('petugas.data_peminjaman')->with('success','data berhasil dihapus');
+    }
 }

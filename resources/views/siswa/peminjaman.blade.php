@@ -10,6 +10,7 @@
                 <div class="col-12 col-md-8 offset-md-2">
             <form action="/book-rent" method="POST" endtype="multipart/form-data"
                 style="left: 320px; top: 200px; position: absolute;">
+                <div class="card">
                 <div>
                     @if (session('message'))
                     <div class="alert alert{{ session('alert-class') }}">

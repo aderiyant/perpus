@@ -13,7 +13,7 @@ class LoginController extends Controller
     {
         if (Auth::attempt($request->only('username', 'password')))
         {
-            return redirect('layouts');
+            return redirect('buku');
         }
         return redirect('/');
         //dd($request->all());
