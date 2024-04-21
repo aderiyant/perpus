@@ -33,7 +33,7 @@ Route::get('/layouts', function () {
 
 
 Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
-
+//SISWA
 Route::get('/siswa', [UserController::class, 'index'])->name('siswa');
 
 Route::get('/tambah_siswa', [UserController::class, 'tambah_siswa'])->name('tambah_siswa');

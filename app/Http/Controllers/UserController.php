@@ -11,9 +11,8 @@ class UserController extends Controller
     public function index()
     {
         $data = User::all();
-        
-        return view('siswa.data_siswa', compact('data'));
 
+        return view('siswa.data_siswa', compact('data'));
     }
     public function tambah_siswa()
     {
@@ -27,9 +26,10 @@ class UserController extends Controller
     public function tampilkan_siswa($id)
     {
         $data = User::find($id);
-        $rentlogs = RentLogs::with(['user', 'buku'])->where('user_id', $data->id)->get;
-        return view('siswa.tampilkan_siswa', ['user' => $data, 'rent_logs' => $rentlogs]);
+        $rentlogs = RentLogs::with(['user', 'buku'])->where('user_id', $data->id)->get();
+        return view('siswa.tampilkan_siswa', ['data' => $data, 'rent_logs' => $rentlogs]);
     }
+
     public function update_siswa(Request $request, $id)
     {
         $data = User::find($id);
