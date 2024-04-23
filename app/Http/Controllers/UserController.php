@@ -45,4 +45,16 @@ class UserController extends Controller
 
         return redirect()->route('siswa')->with('siswa berhasil di update');
     }
+
+    //pencarian
+    public function searchSiswa(Request $request)
+    {
+        $search = $request->get('search');
+        $data = user::where('namalengkap', 'like', "%{$search}%")
+            ->orWhere('username', 'like', "%{$search}%")
+            ->orWhere('kelas', 'like', "%{$search}%")
+            ->get();
+
+        return view('siswa.data_siswa', compact('data'));
+    }
 }

@@ -66,6 +66,7 @@ Route::get('/pengembalian', [BookRentController::class, 'pengembalian']);
 Route::post('/pengembalian', [BookRentController::class, 'simpanpengembalian']);
 
 //pencarian
-
-// Route untuk pencarian buku
+// pencarian buku
 Route::get('/cari_buku', [BukuController::class, 'cariBuku'])->name('cari_buku');
+//pencarian siswa
+Route::get('/cari_siswa', [SiswaController::class, 'searchSiswa'])->name('cari_siswa');

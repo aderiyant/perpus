@@ -48,11 +48,20 @@ class BukuController extends Controller
   public function cariBuku(Request $request)
   {
     $search = $request->input('search');
+    $kategori = $request->input('kategori');
 
-    $data = Buku::where('judul', 'like', "%{$search}%")
-      ->orWhere('pengarang', 'like', "%{$search}%")
-      ->orWhere('kategori', 'like', "%{$search}%")
-      ->get();
+    $query = Buku::query();
+
+    if (!empty($search)) {
+      $query->where('judul', 'like', "%{$search}%")
+        ->orWhere('pengarang', 'like', "%{$search}%");
+    }
+
+    if (!empty($kategori)) {
+      $query->where('kategori', $kategori);
+    }
+
+    $data = $query->get();
 
     return view('buku.data_buku', compact('data'));
   }
