@@ -16,7 +16,6 @@
             <th scope="col">Password</th>
             <th scope="col">Kelas</th>
             <th scope="col">Level</th>
-            
             <th scope="col">Aksi</th>
         </tr>
     </thead>

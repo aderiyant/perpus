@@ -64,3 +64,8 @@ Route::get('/rent-logs', [RentLogsController::class, 'index']);
 
 Route::get('/pengembalian', [BookRentController::class, 'pengembalian']);
 Route::post('/pengembalian', [BookRentController::class, 'simpanpengembalian']);
+
+//pencarian
+
+// Route untuk pencarian buku
+Route::get('/cari_buku', [BukuController::class, 'cariBuku'])->name('cari_buku');
