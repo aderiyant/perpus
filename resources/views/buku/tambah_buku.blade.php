@@ -38,7 +38,7 @@
                             <label for="kategori" class="form-label">kategori:</label>
                             <select class="form-select" name="kategori" class="form-control" id="kategori"  aria-label="Default select example">
                                 <option value="1">Akademik</option>
-                                <option value="2">Non Akademik</option>
+                                <option value="2">Non-Akademik</option>
                             </select>
                         </div>
                         <div class="mb-3">

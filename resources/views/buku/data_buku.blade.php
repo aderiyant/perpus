@@ -28,9 +28,9 @@
             <form action="{{ route('cari_buku') }}" method="GET">
                 <div class="input-group mb-3">
                     <select class="form-control" name="kategori">
-                        <option value="">Pilih Kategori</option>
+                        <option value="">Semua kategori</option>
                         <option value="akademik">Akademik</option>
-                        <option value="non-akademik">Non-Akademik</option>
+                        <option value="non akademik">Non-Akademik</option>
                     </select>
                     <button class="btn btn-primary" type="submit">Filter</button>
                 </div>
