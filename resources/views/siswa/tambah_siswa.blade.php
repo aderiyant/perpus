@@ -32,10 +32,18 @@
                         </div>
                         <div class="mb-3">
                             <label for="kelas" class="form-label">Kelas:</label>
-                            <input type="kelas" name="kelas" class="form-control" id="kelas">
-                        </div> <div class="mb-3">
+                            <select name="kelas" class="form-control" id="kelas">
+                                <option value="X">X </option>
+                                <option value="XI">XI </option>
+                                <option value="XII">XII </option>  
+                            </select>
+                        </div> 
+                        <div class="mb-3">
                             <label for="level" class="form-label">Level:</label>
-                            <input type="level" name="level" class="form-control" id="nis">
+                            <select name="level" class="form-control" id="nis">
+                                <option value="admin">Admin</option>
+                                <option value="user">User</option>
+                            </select>
                         </div>
                         
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -44,5 +52,4 @@
                     </div>
                 </div>
             </div>
-    
 @endsection

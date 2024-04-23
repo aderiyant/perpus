@@ -11,6 +11,18 @@
                 <button type="submit" class="btn btn-primary">Cari</button>
             </div>
         </form>
+        <!--Filter Kelas -->
+        <form action="{{ route('cari_siswa') }}" method="GET" class="mb-3">
+            <div class="input-group">
+                <select class="form-control" name="kelas">
+                    <option value="">Semua Kelas</option>
+                    <option value="X">X</option>
+                    <option value="XI">XI</option>
+                    <option value="XII">XII</option>
+                </select>
+                <button type="submit" class="btn btn-secondary">Filter</button>
+            </div>
+        </form>
         <!-- Tombol tambah siswa -->
         <a href="/tambah_siswa" class="btn btn-success mb-3">Tambah Siswa</a>
         <div class="table-responsive">

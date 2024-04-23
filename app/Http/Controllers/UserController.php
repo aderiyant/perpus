@@ -50,10 +50,20 @@ class UserController extends Controller
     public function searchSiswa(Request $request)
     {
         $search = $request->get('search');
-        $data = user::where('namalengkap', 'like', "%{$search}%")
-            ->orWhere('username', 'like', "%{$search}%")
-            ->orWhere('kelas', 'like', "%{$search}%")
-            ->get();
+        $kelas = $request->get('kelas');
+
+        $query = User::query();
+
+        if (!empty($search)) {
+            $query->where('namalengkap', 'like', "%{$search}%")
+                ->orWhere('username', 'like', "%{$search}%");
+        }
+
+        if (!empty($kelas)) {
+            $query->where('kelas', $kelas);
+        }
+
+        $data = $query->get();
 
         return view('siswa.data_siswa', compact('data'));
     }
