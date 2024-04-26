@@ -41,10 +41,11 @@ Route  ::group(['middleware' => ['auth' ,'CekLevel:admin']], function (){
 
 });
 
+Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
+
 Route  ::group(['middleware' => ['auth']], function (){
 
     Route::get('/buku', [BukuController::class, 'index'])->name('buku');
-    Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
     Route::get('/tambah_siswa', [UserController::class, 'tambah_siswa'])->name('tambah_siswa');
     Route::post('/insert_siswa', [UserController::class, 'insert_siswa'])->name('insert_siswa');
     Route::get('/tampilkan_siswa/{id}', [UserController::class, 'tampilkan_siswa'])->name('tampilkan_siswa');

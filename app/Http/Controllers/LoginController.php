@@ -11,11 +11,14 @@ class LoginController extends Controller
 
     public function postlogin(Request $request)
     {
-        if (Auth::attempt($request->only('username', 'password')))
+        $credentials = $request->validate([
+        'username' => 'required',
+        'password' => 'required'
+        ]);
+       if(Auth::attempt($credentials))
         {
-            return redirect('buku');
+            $request->session()->regenerate();
+            return redirect()->route('buku')->withSuccess('You have successfully logged in!');
         }
-        return redirect('/');
-        //dd($request->all());
     }
 }
