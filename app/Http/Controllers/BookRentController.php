@@ -6,7 +6,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Commit;
-use Illuminate\Http\Controler\Auth;
+// use Illuminate\Http\Controler\Auth;
+use Illuminate\Support\Facades\Auth; //baru
 use App\Models\User;
 use App\Models\Buku;
 use App\Models\RentLogs;

@@ -68,7 +68,7 @@
                             <a href="/delete_buku/{{ $row->id }}" class="btn btn-danger">Hapus</a>
                             @endif
                             @if (auth()->user()->level == "user")
-                            <a href="/buku" class="btn btn-success">Pinjam</a>
+                            <a href="/book-rent" class="btn btn-success">Pinjam</a>
                             @endif
                         </td>
                     </tr>

@@ -29,6 +29,7 @@
         <ul>
             @if (auth()->user()->level=="user")
             <a class="nav-link active" href="/buku">Buku</a>
+            
             @endif
                      @if (auth()->user()->level=="admin")
             <a class="nav-link active" href="/layouts">DASHBOARD</a><br>
