@@ -97,7 +97,7 @@ public function simpanpengembalian(Request $request)
 
         // Mengubah status buku menjadi tersedia
         $buku = Buku::where('kodebuku', $request->kodebuku)->first();
-        $buku->status = 'tersedia';
+        $buku->status = 'tidak tersedia';
         $buku->save();
 
         // Redirect dengan pesan sukses
