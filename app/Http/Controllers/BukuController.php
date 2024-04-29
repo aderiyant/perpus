@@ -21,7 +21,7 @@ class BukuController extends Controller
   public function insert_buku(Request $request)
   {
     Buku::create($request->all());
-    return redirect()->route('buku')->with('buku berhasil di tambahkan');
+    return redirect()->back()->with('success', 'Buku berhasil ditambahkan!');
   }
   public function tampilkan_buku($id)
   {

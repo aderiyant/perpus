@@ -20,8 +20,6 @@
         <p
             style="left: 20px; top: 10px; position: fixed; color: white; font-size: 30px; font-family: Inter; font-weight: 700; word-wrap: break-word">
             PERPUSTAKAAN</p>
-
-            
         <p  style="left: 120px; top: 130px;  position: absolute; color: black; font-size: 16px; font-family: Inter; font-weight: 700; word-wrap: break-word">
             Halo {{auth()->user()->namalengkap}}</p>
     <div class="d-flex align-items-start" style="left: 10px; top: 250px;  position: absolute; color: black; font-size: 16px; font-family: Inter; font-weight: 700; word-wrap: break-word">
@@ -29,25 +27,21 @@
         <ul>
             @if (auth()->user()->level=="user")
             <a class="nav-link active" href="/buku">Buku</a>
-            
             @endif
-                     @if (auth()->user()->level=="admin")
-            <a class="nav-link active" href="/layouts">DASHBOARD</a><br>
-            <a class="nav-link active" href="/buku">Buku</a>
-            <a class="nav-link active" href="/siswa">Siswa</a>
-            <a class="nav-link active"  href="/rent-logs"> Data Peminjaman</a>
-            <a class="nav-link active" href="/pengembalian">Pengembalian</a>
-
-            
-            <script src="app.js"></script>
-            </div>
-                     @endif
+                @if (auth()->user()->level=="admin")
+                <a class="nav-link active" href="/buku">Buku</a>
+                <a class="nav-link active" href="/siswa">Siswa</a>
+                <a class="nav-link active"  href="/rent-logs"> Data Peminjaman</a>
+                <a class="nav-link active" href="/pengembalian">Pengembalian</a>
+                <script src="app.js"></script>
+                </div>
+                @endif
         </ul>
         </div>
     </div>
     </div>
 </body>
-<div class="container mt-4">
-    @yield('container')
-            </div>
+    <div class="container mt-4">            
+        @yield('container')
+    </div>
 </html>

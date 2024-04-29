@@ -15,43 +15,52 @@
     <script src="script.js defer"></script>
 </head>
 <body>
-            <h1  style="left: 320px; top: 100px; position: absolute;" >Input Data Buku</h1>
+    <div class="container">
+        <!-- Tampilkan notifikasi -->
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
             </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="card">
-                        <form action="/insert_buku" method="post" endtype="multipart/form-data"  style="left: 320px; top: 200px; position: absolute;">
-                            {{ csrf_field() }}
-                            <div class="mb-3">
-                                <label for="kodebuku" class="form-label">Kode Buku:</label>
-                                <input type="kodebuku" name="kodebuku" class="form-control" id="kodebuku" aria-describedby="kodebuku">
-                            
-                        <div class="mb-3">
-                            <label for="judul" class="form-label">Judul Buku:</label>
-                            <input type="judul" name="judul" class="form-control" id="judul" aria-describedby="judul">
-                        </div>
-                        <div class="mb-3">
-                            <label for="pengarang" class="form-label">Pengarang:</label>
-                            <input type="pengarang" name="pengarang" class="form-control" id="pengarang">
-                        </div>
-                        <div class="mb-3">
-                            <label for="kategori" class="form-label">kategori:</label>
-                            <select class="form-select" name="kategori" class="form-control" id="kategori"  aria-label="Default select example">
-                                <option value="1">Akademik</option>
-                                <option value="2">Non-Akademik</option>
+        @endif
+
+        <h1 style="left: 320px; top: 100px; position: absolute;">Input Data Buku</h1>
+        <div class="row justify-content-center">
+            <div class="card">
+                <form action="/insert_buku" method="post" enctype="multipart/form-data" style="left: 320px; top: 200px; position: absolute;">
+                    {{ csrf_field() }}
+                    <div class="mb-3">
+                        <label for="kodebuku" class="form-label">Kode Buku:</label>
+                                               <input type="kodebuku" name="kodebuku" class="form-control" id="kodebuku" aria-describedby="kodebuku">
+                    
+                    <div class="mb-3">
+                        <label for="judul" class="form-label">Judul Buku:</label>
+                                               <input type="judul" name="judul" class="form-control" id="judul" aria-describedby="judul">
+                    </div>
+                    <div class="mb-3">
+                        <label for="pengarang" class="form-label">Pengarang:</label>
+                        <input type="pengarang" name="pengarang" class="form-control" id="pengarang">
+                    </div>
+                    <div class="mb-3">
+                        <label for="kategori" class="form-label">kategori:</label>
+                        <select class="form-select" name="kategori" class="form-control" id="kategori"  aria-label="Default select example">
+                            <option value="1">Akademik</option>
+                            <option value="2">Non-Akademik</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                            <label for="status" class="form-label">Status:</label>
+                            <select name="status" class="form-control" id="status">
+                                <option value="tersedia">Tersedia</option>
+                                <option value="tidak tersedia">Tidak Tersedia</option>
                             </select>
                         </div>
-                        <div class="mb-3">
-                                <label for="status" class="form-label">Status:</label>
-                                <input type="status" name="status" class="form-control" id="status" aria-describedby="status">
-                            </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    <div class="card-body">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            <div class="card-body">
 
-                    </div>
-                    </div>
-                </div>
             </div>
-    
+            </div>
+        </div>
+    </div>
+
 </body>

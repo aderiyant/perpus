@@ -4,11 +4,7 @@
 <body>
     <div class="container">
         <div class="col-md-10">
-            @if (session('message'))
-            <div class="alert alert{{ session('alert-class') }}">
-                {{ session('message') }}
-            </div>
-            @endif
+
             <div style="position: relative;">
                 <h1>Data Buku</h1>
                 @if (auth()->user()->level == "admin")
@@ -67,8 +63,12 @@
                             <a href="/tampilkan_buku/{{ $row->id }}" class="btn btn-info">Edit</a>
                             <a href="/delete_buku/{{ $row->id }}" class="btn btn-danger">Hapus</a>
                             @endif
-                            @if (auth()->user()->level == "user")
-                            <a href="/book-rent" class="btn btn-success">Pinjam</a>
+                            @if (auth()->user()->level == "user" && $row->status == 'tersedia')
+                            <form action="/book-rent" method="POST">
+                                @csrf
+                                <input type="hidden" name="kodebuku" value="{{ $row->id }}">
+                                <button type="submit" class="btn btn-success">Pinjam</button>
+                            </form>
                             @endif
                         </td>
                     </tr>

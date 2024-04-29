@@ -1,8 +1,20 @@
 @extends('layouts.dasboard')
 
 @section('container')
+<body>
+    <div class="container">
+        @if (session('succes'))
+        <div class="alert alert-success">
+            {{ session('succes') }}
+        </div>
+    @endif
+        <div class="col-md-10">
 
-            <h1  style="left: 320px; top: 100px; position: absolute;" >Input Data Siswa</h1>
+            <div style="position: relative;">
+                <h1>Data Buku</h1>
+                @if (auth()->user()->level == "admin")
+                <a href="/tambah_buku" class="btn btn-success" style="position: absolute; top: 0; right: 0;">Input</a>
+                @endif
             </div>
             <div class="container">
                 <div class="row justify-content-center">

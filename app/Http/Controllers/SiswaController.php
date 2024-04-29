@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Models\Siswa;
 use Auth;
+
 class SiswaController extends Controller
 {
     public function index()
@@ -12,7 +13,6 @@ class SiswaController extends Controller
         $data = Siswa::all();
 
         return view('siswa.data_siswa', compact('data'));
-
     }
     public function tambah_siswa()
     {
@@ -21,7 +21,7 @@ class SiswaController extends Controller
     public function insert_siswa(Request $request)
     {
         Siswa::create($request->all());
-        return redirect()->route('siswa')->with('siswa berhasil di tambahkan');
+        return redirect()->route('siswa')->with('succes', 'Siswa berhasil ditambahkan!');
     }
     public function tampilkan_siswa($id)
     {

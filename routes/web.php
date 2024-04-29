@@ -70,3 +70,4 @@ Route::post('/pengembalian', [BookRentController::class, 'simpanpengembalian']);
 Route::get('/cari_buku', [BukuController::class, 'cariBuku'])->name('cari_buku');
 //pencarian siswa
 Route::get('/cari_siswa', [UserController::class, 'searchSiswa'])->name('cari_siswa');
+Route::delete('/delete_peminjaman/{id}', [RentLogsController::class, 'delete'])->name('delete_peminjaman');

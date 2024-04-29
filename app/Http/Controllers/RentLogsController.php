@@ -11,7 +11,17 @@ class RentLogsController extends Controller
     public function index()
     {
         $rentlogs = RentLogs::with(['user', 'buku'])->get();
-        return view('petugas.data_peminjaman',['rent_logs' => $rentlogs]);
+        return view('petugas.data_peminjaman', ['rent_logs' => $rentlogs]);
+    }
 
+    public function delete($id)
+    {
+        $rentLog = RentLogs::find($id);
+        if ($rentLog) {
+            $rentLog->delete();
+            return redirect()->back()->with('message', 'Data peminjaman berhasil dihapus')->with('alert-class', 'alert-success');
+        } else {
+            return redirect()->back()->with('message', 'Data peminjaman tidak ditemukan')->with('alert-class', 'alert-danger');
+        }
     }
 }
