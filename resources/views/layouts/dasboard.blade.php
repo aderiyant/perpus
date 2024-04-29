@@ -27,6 +27,7 @@
         <ul>
             @if (auth()->user()->level=="user")
             <a class="nav-link active" href="/buku">Buku</a>
+            <a class="nav-link active" href="/riwayat_peminjaman">Riwayat Peminjaman</a>
             @endif
                 @if (auth()->user()->level=="admin")
                 <a class="nav-link active" href="/buku">Buku</a>

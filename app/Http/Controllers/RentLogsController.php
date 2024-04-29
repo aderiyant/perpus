@@ -14,7 +14,7 @@ class RentLogsController extends Controller
         return view('petugas.data_peminjaman', ['rent_logs' => $rentlogs]);
     }
 
-    public function delete($id)
+    public function hapus_peminjaman($id)
     {
         $rentLog = RentLogs::find($id);
         if ($rentLog) {
@@ -23,5 +23,11 @@ class RentLogsController extends Controller
         } else {
             return redirect()->back()->with('message', 'Data peminjaman tidak ditemukan')->with('alert-class', 'alert-danger');
         }
+    }
+
+    public function riwayat()
+    {
+        $riwayat_peminjaman = RentLogs::where('user_id', auth()->user()->id)->get();
+        return view('siswa.riwyat_peminjaman', ['rent_logs' => $riwayat_peminjaman]);
     }
 }

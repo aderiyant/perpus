@@ -18,7 +18,7 @@
             <th>Rent Date</th>
             <th>Return Date</th>
             <th>Actual Return Date</th>
-            <th>Action</th> <!-- Tambah kolom Action -->
+            <th>Action</th> 
         </tr>
     </thead>
     <tbody>
@@ -32,7 +32,7 @@
             <td>{{ $item->return_date }}</td>
             <td>{{ $item->actual_return_date }}</td>
             <td>
-                <form action="/delete_peminjaman/{{ $item->id }}" method="POST">
+                <form action="/hapus_peminjaman/{{ $item->id }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Delete</button>
