@@ -21,7 +21,7 @@ class UserController extends Controller
     public function insert_siswa(Request $request)
     {
         User::create($request->all());
-        return redirect()->route('siswa')->with('siswa berhasil di tambahkan');
+        return redirect()->route('siswa')->with('succes', 'Siswa berhasil ditambahkan!');
     }
     public function tampilkan_siswa($id)
     {

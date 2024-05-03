@@ -3,13 +3,11 @@
 @section('container')
 <body>
     <div class="container">
-        @if (session('succes'))
+    @if (session('succes'))
         <div class="alert alert-success">
             {{ session('succes') }}
         </div>
     @endif
-        <div class="col-md-10">
-
             <div style="position: relative;">
                 <h1>Data Buku</h1>
                 @if (auth()->user()->level == "admin")
@@ -19,13 +17,13 @@
             <div class="container">
                 <div class="row justify-content-center">
                     
-                        <form action="/insert_siswa" method="post" endtype="multipart/form-data"  style="left: 90px; top: 200px; position: absolute;">
+                        <form action="/insert_siswa" method="post" enctype="multipart/form-data"  style="left: 90px; top: 200px; position: absolute;">
                             {{ csrf_field() }}
                             <div class="col-12 col-md-8 offset-md-2">
               
                         <div class="mb-3">
                             <label for="namalengkap" class="form-label">Nama Lengkap:</label>
-                            <input type="namelengkap" name="namalengkap" class="form-control" id="namalengkap" aria-describedby="namalengkap">
+                            <input type="text" name="namalengkap" class="form-control" id="namalengkap" aria-describedby="namalengkap">
                         </div>
                         <div class="mb-3">
                             <label for="jeniskelamin" class="form-label">Jenis Kelamin:</label>
@@ -63,5 +61,6 @@
                 
                     </div>
                 </div>
-            </div>
+
 @endsection
+
