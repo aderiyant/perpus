@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('kodebuku')->unique();
             $table->string('judul');
+            $table->string('rak');
             $table->string('pengarang');
             $table->enum('kategori', ['akademik', 'non akademik']);
             $table->string('status')->default('tersedia');

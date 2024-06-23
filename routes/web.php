@@ -31,19 +31,22 @@ Route::get('/layouts', function () {
     return view('layouts.dasboard');
 })->middleware('auth');
 
-Route  ::group(['middleware' => ['auth' ,'CekLevel:admin']], function (){
+Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
 
-    
+
     Route::get('/siswa', [UserController::class, 'index'])->name('siswa');
     Route::get('/pengembalian', [BookRentController::class, 'pengembalian']);
-    
-    
+    //pencarian
+    //pencarian siswa
+    Route::get('/cari_siswa', [UserController::class, 'searchSiswa'])->name('cari_siswa');
+
+
 
 });
 
 Route::post('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 
-Route  ::group(['middleware' => ['auth']], function (){
+Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/buku', [BukuController::class, 'index'])->name('buku');
     Route::get('/tambah_siswa', [UserController::class, 'tambah_siswa'])->name('tambah_siswa');
@@ -67,4 +70,11 @@ Route  ::group(['middleware' => ['auth']], function (){
 
     Route::post('/pengembalian', [BookRentController::class, 'simpanpengembalian']);
     Route::get('/delete/{id}', [RentLogsController::class, 'delete'])->name('delete');
+
+    Route::delete('/hapus_peminjaman/{id}', [RentLogsController::class, 'hapus_peminjaman'])->name('hapus-peminjaman');
+    Route::get('/riwayat_peminjaman', [RentLogsController::class, 'riwayat'])->name('riwayat_peminjaman');
+    // pencarian buku
+    Route::get('/cari_buku', [BukuController::class, 'cariBuku'])->name('cari_buku');
 });
+
+

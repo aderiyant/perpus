@@ -17,6 +17,7 @@ class BukuSeeder extends Seeder
             'id' => '1',
             'kodebuku' => 'DD23245',
             'judul' => 'abcd',
+            'rak'=>'A1',
             'pengarang' => 'adjhdhsa',
             'status' => 'tersedia',
         ]);

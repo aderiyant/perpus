@@ -1,5 +1,4 @@
 .paragraf {
-    left: 490px;
         top: 100px;
         position: absolute;
         color: #CCCE6E;
@@ -46,4 +45,72 @@ table {
 }
 .active {
     background: #000;
+}
+
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+
+@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+.bg-image-vertical {
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+}
+
+@media (min-width: 1025px) {
+    .h-custom-2 {
+        height: 100%;
+    }
+}
+/* Let's assume you have a CSS file named style.css */
+/* You can link this CSS file to your HTML file to apply these styles */
+
+/* Style for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style for table header */
+table th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 8px;
+}
+
+/* Style for table rows */
+table td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Alternate row color */
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style for action buttons */
+.action-btn {
+    margin-right: 5px;
 }

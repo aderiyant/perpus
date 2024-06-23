@@ -21,7 +21,7 @@ class SiswaController extends Controller
     public function insert_siswa(Request $request)
     {
         Siswa::create($request->all());
-        return redirect()->route('siswa')->with('siswa berhasil di tambahkan');
+        return redirect()->route('siswa')->with('success', 'Siswa berhasil ditambahkan!');
     }
     public function tampilkan_siswa($id)
     {
@@ -34,7 +34,7 @@ class SiswaController extends Controller
         $data = Siswa::find($id);
         $data->update($request->all());
 
-        return redirect()->route('siswa')->with('siswa berhasil di update');
+        return redirect()->route('siswa')->with('success','siswa berhasil di update');
     }
 
     public function delete_siswa($id)
@@ -42,6 +42,6 @@ class SiswaController extends Controller
         $data = Siswa::find($id);
         $data->delete();
 
-        return redirect()->route('siswa')->with('siswa berhasil di update');
+        return redirect()->route('siswa')->with('success','siswa berhasil di hapus');
     }
 }

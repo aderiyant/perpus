@@ -1,57 +1,78 @@
 @extends('layouts.dasboard')
 
 @section('container')
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PERPUSTAKAAN | BUKU</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-        rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-        crossorigin="anonymous">
-    <script src="script.js defer"></script>
-</head>
-<body>
-            <h1  style="left: 320px; top: 100px; position: absolute;" >Input Data Buku</h1>
-            </div>
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="card">
-                        <form action="/insert_buku" method="post" endtype="multipart/form-data"  style="left: 320px; top: 200px; position: absolute;">
-                            {{ csrf_field() }}
-                            <div class="mb-3">
-                                <label for="kodebuku" class="form-label">Kode Buku:</label>
-                                <input type="kodebuku" name="kodebuku" class="form-control" id="kodebuku" aria-describedby="kodebuku">
-                            
-                        <div class="mb-3">
-                            <label for="judul" class="form-label">Judul Buku:</label>
-                            <input type="judul" name="judul" class="form-control" id="judul" aria-describedby="judul">
-                        </div>
-                        <div class="mb-3">
-                            <label for="pengarang" class="form-label">Pengarang:</label>
-                            <input type="pengarang" name="pengarang" class="form-control" id="pengarang">
-                        </div>
-                        <div class="mb-3">
-                            <label for="kategori" class="form-label">kategori:</label>
-                            <select class="form-select" name="kategori" class="form-control" id="kategori"  aria-label="Default select example">
-                                <option value="1">Akademik</option>
-                                <option value="2">Non Akademik</option>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                                <label for="status" class="form-label">Status:</label>
-                                <input type="status" name="status" class="form-control" id="status" aria-describedby="status">
+<div class="content">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Input Data Buku</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action="/insert_buku" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        {{ csrf_field() }}
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label for="kodebuku" class="col-sm-3 col-form-label">Kode Buku:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="kodebuku" class="form-control" id="kodebuku">
+                                </div>
                             </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    <div class="card-body">
-
-                    </div>
-                    </div>
+                            <div class="form-group row">
+                                <label for="judul" class="col-sm-3 col-form-label">Judul Buku:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="judul" class="form-control" id="judul">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="rak" class="col-sm-3 col-form-label">Rak Buku:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="rak" class="form-control" id="rak">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="pengarang" class="col-sm-3 col-form-label">Pengarang:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="pengarang" class="form-control" id="pengarang">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="kategori" class="col-sm-3 col-form-label">Kategori:</label>
+                                <div class="col-sm-9">
+                                    <select name="kategori" class="form-control" id="kategori">
+                                        <option value="1">Akademik</option>
+                                        <option value="2">Non-Akademik</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="status" class="col-sm-3 col-form-label">Status:</label>
+                                <div class="col-sm-9">
+                                    <select name="status" class="form-control" id="status">
+                                        <option value="tersedia">Tersedia</option>
+                                        <option value="tidak tersedia">Tidak Tersedia</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        <!-- /.card-footer -->
+                    </form>
                 </div>
+                <!-- /.card -->
             </div>
-    
-</body>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<!-- /.content -->
+
+@endsection
